@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space Shooter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Starfield background (filled in by JavaScript) -->
+  <div id="starfield"></div>
+
+  <main class="console">
+
+    <!-- Header -->
+    <header class="console__header">
+      <h1 class="title">SPACE&nbsp;SHOOTER</h1>
+      <p class="subtitle">terminal edition // deep space patrol</p>
+    </header>
+
+    <!-- HUD: score + status -->
+    <section class="hud">
+      <div class="hud__box">
+        <span class="hud__label">Score</span>
+        <span class="hud__value" id="score">000</span>
+      </div>
+      <div class="hud__box hud__box--status">
+        <span class="hud__label">Status</span>
+        <span class="hud__value" id="message">Awaiting launch…</span>
+      </div>
+    </section>
+
+    <!-- The 0-10 position track, mirrors the original ASCII line -->
+    <section class="track" id="track" aria-label="battlefield"></section>
+
+    <!-- Controls -->
+    <section class="controls">
+      <button class="btn btn--move" id="btn-left" aria-label="Move left">
+        <span class="btn__key">A</span>◀ LEFT
+      </button>
+      <button class="btn btn--shoot" id="btn-shoot" aria-label="Shoot">
+        <span class="btn__key">S</span>🔫 SHOOT
+      </button>
+      <button class="btn btn--move" id="btn-right" aria-label="Move right">
+        <span class="btn__key">D</span>RIGHT ▶
+      </button>
+    </section>
+
+    <footer class="console__footer">
+      <button class="btn btn--ghost" id="btn-quit"><span class="btn__key">Q</span>QUIT</button>
+      <p class="hint">Move with <b>A</b> / <b>D</b>, fire with <b>S</b>, quit with <b>Q</b></p>
+    </footer>
+
+  </main>
+
+  <!-- Start overlay -->
+  <div class="overlay" id="start-screen">
+    <div class="overlay__panel">
+      <h2>SPACE SHOOTER</h2>
+      <p>Line up your ship <span class="tag tag--player">🚀</span> with the enemy
+        <span class="tag tag--enemy">👾</span> on the track, then fire.</p>
+      <button class="btn btn--primary" id="btn-start">▶ START GAME</button>
+    </div>
+  </div>
+
+  <!-- Game over overlay -->
+  <div class="overlay overlay--hidden" id="end-screen">
+    <div class="overlay__panel">
+      <h2 id="end-title">GAME OVER</h2>
+      <p id="end-text">Final score:</p>
+      <p class="end-score" id="end-score">000</p>
+      <button class="btn btn--primary" id="btn-restart">↻ RESTART GAME</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
